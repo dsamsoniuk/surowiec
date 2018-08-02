@@ -17,10 +17,12 @@ class DefaultController extends Controller
      */
     public function admin(MessageGenerator $messageGenerator)
     {
-
+        $usr= $this->get('security.token_storage')->getToken()->getUser();
+        // $usr->getUsername();
         $message = $messageGenerator->getHappyMessage();
         // $this->addFlash('success', $message);
-        return new Response('<html><body>Admin page WIADOMOSC:'.$message.'</body></html>');
+       
+        return new Response('<html><body>Admin page <br> Czesc, '.$usr->getUsername().'! <br> WIADOMOSC:'.$message.'</body></html>');
     }
     /**
      * @Route("/")
