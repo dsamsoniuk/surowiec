@@ -29,7 +29,10 @@ class DefaultController extends Controller
      */
     public function index()
     {
-        return new Response('<html><body>glowna ^/ </body></html>');
+        return $this->render(
+            'default.html.twig'
+        );
+        // return new Response('<html><body>glowna ^/ </body></html>');
     }
 
 }
